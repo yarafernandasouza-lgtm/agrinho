@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Feirinha Virtual</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🍎 Feirinha Virtual 🥦</h1>
+        <p>Escolha seus produtos frescos abaixo!</p>
+    </header>
+
+    <main class="container">
+        <section class="produtos">
+            <h2>Produtos Disponíveis</h2>
+            <div class="lista-produtos">
+                <div class="produto-card">
+                    <h3>Banana (Kg)</h3>
+                    <p class="preco">R$ 5,00</p>
+                    <button onclick="adicionarAoCarrinho('Banana', 5.00)">Adicionar</button>
+                </div>
+                <div class="produto-card">
+                    <h3>Tomate (Kg)</h3>
+                    <p class="preco">R$ 7,50</p>
+                    <button onclick="adicionarAoCarrinho('Tomate', 7.50)">Adicionar</button>
+                </div>
+                <div class="produto-card">
+                    <h3>Alface (Unid)</h3>
+                    <p class="preco">R$ 3,00</p>
+                    <button onclick="adicionarAoCarrinho('Alface', 3.00)">Adicionar</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="carrinho">
+            <h2>Seu Carrinho</h2>
+            <ul id="itens-carrinho">
+                </ul>
+            <div class="total">
+                <strong>Total: R$ <span id="valor-total">0,00</span></strong>
+            </div>
+            <button class="btn-finalizar" onclick="finalizarCompra()">Finalizar Pedido via WhatsApp</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
