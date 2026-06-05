@@ -91,3 +91,26 @@ button:hover {
 .btn-finalizar:hover {
     background-color: #1ebd59;
 }
+/* Alinha o texto do produto e o botão de remover lado a lado */
+.carrinho li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Estilo do botão de remover (X) */
+.btn-remover {
+    background: none;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: transform 0.1s;
+}
+
+.btn-remover:hover {
+    background: none; /* Mantém o fundo transparente no hover */
+    transform: scale(1.2); /* Dá um leve zoom ao passar o mouse */
+}
