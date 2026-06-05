@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: #f4f9f4;
     margin: 0;
     padding: 0;
@@ -11,6 +13,11 @@ header {
     color: white;
     text-align: center;
     padding: 20px;
+}
+
+header h1, h2, h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
 }
 
 .container {
@@ -32,16 +39,23 @@ header {
 
 .lista-produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 10px 0;
 }
 
 .produto-card {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
+    border: 1px solid #e0ebd0;
+    padding: 15px;
+    border-radius: 12px;
     text-align: center;
-    background-color: #fafafa;
+    background-color: #ffffff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.produto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
 }
 
 .preco {
@@ -50,12 +64,15 @@ header {
 }
 
 button {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
     background-color: #4CAF50;
     color: white;
     border: none;
     padding: 8px 12px;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 button:hover {
@@ -70,8 +87,23 @@ button:hover {
 .carrinho li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 8px 0;
     border-bottom: 1px solid #eee;
+}
+
+.btn-remover {
+    background: none;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: transform 0.1s;
+}
+
+.btn-remover:hover {
+    background: none;
+    transform: scale(1.2);
 }
 
 .total {
@@ -83,34 +115,11 @@ button:hover {
 .btn-finalizar {
     width: 100%;
     padding: 12px;
-    background-color: #25D366; /* Cor do WhatsApp */
+    background-color: #2e7d32; /* Um verde escuro elegante para o botão de sucesso */
     font-size: 1em;
     margin-top: 15px;
 }
 
 .btn-finalizar:hover {
-    background-color: #1ebd59;
-}
-/* Alinha o texto do produto e o botão de remover lado a lado */
-.carrinho li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-}
-
-/* Estilo do botão de remover (X) */
-.btn-remover {
-    background: none;
-    border: none;
-    padding: 4px 8px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: transform 0.1s;
-}
-
-.btn-remover:hover {
-    background: none; /* Mantém o fundo transparente no hover */
-    transform: scale(1.2); /* Dá um leve zoom ao passar o mouse */
+    background-color: #1b5e20;
 }
