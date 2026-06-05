@@ -3,117 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Feirinha Virtual</title>
+    <title>Minha Feirinha Virtual Pro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>🍎 Feirinha Virtual 🥦</h1>
+        <div class="header-top">
+            <h1>🍎 Feirinha Virtual 🥦</h1>
+            <button id="btn-dark-mode" onclick="alternarModoEscuro()">🌙 Modo Escuro</button>
+        </div>
         <p>Escolha seus produtos frescos abaixo!</p>
+        
+        <div class="busca-container">
+            <input type="text" id="barra-busca" oninput="filtrarProdutos()" placeholder="🔍 Digite para buscar um produto...">
+        </div>
     </header>
 
     <main class="container">
         <section class="produtos">
             <h2>Produtos Disponíveis</h2>
-            <div class="lista-produtos">
+            <div class="lista-produtos" id="vitrine-produtos">
                 
-                <div class="produto-card">
-                    <h3>🍌 Banana Prata (Kg)</h3>
-                    <p class="preco">R$ 6,50</p>
-                    <button onclick="adicionarAoCarrinho('Banana Prata', 6.50)">Adicionar</button>
                 </div>
-                <div class="produto-card">
-                    <h3>🍓 Morango (Bandeja)</h3>
-                    <p class="preco">R$ 8,50</p>
-                    <button onclick="adicionarAoCarrinho('Morango', 8.50)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🍎 Maçã Gala (Kg)</h3>
-                    <p class="preco">R$ 9,00</p>
-                    <button onclick="adicionarAoCarrinho('Maçã Gala', 9.00)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🍊 Laranja Pêra (Kg)</h3>
-                    <p class="preco">R$ 4,50</p>
-                    <button onclick="adicionarAoCarrinho('Laranja Pêra', 4.50)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🥑 Abacate (Kg)</h3>
-                    <p class="preco">R$ 6,80</p>
-                    <button onclick="adicionarAoCarrinho('Abacate', 6.80)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🍉 Melancia (Fatia)</h3>
-                    <p class="preco">R$ 5,00</p>
-                    <button onclick="adicionarAoCarrinho('Melancia (Fatia)', 5.00)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🍇 Uva Sem Semente (Bdj)</h3>
-                    <p class="preco">R$ 9,50</p>
-                    <button onclick="adicionarAoCarrinho('Uva Sem Semente', 9.50)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🍍 Abacaxi (Unid)</h3>
-                    <p class="preco">R$ 7,00</p>
-                    <button onclick="adicionarAoCarrinho('Abacaxi', 7.00)">Adicionar</button>
-                </div>
-
-                <div class="produto-card">
-                    <h3>🍅 Tomate Italiano (Kg)</h3>
-                    <p class="preco">R$ 9,50</p>
-                    <button onclick="adicionarAoCarrinho('Tomate Italiano', 9.50)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🥔 Batata Inglesa (Kg)</h3>
-                    <p class="preco">R$ 8,90</p>
-                    <button onclick="adicionarAoCarrinho('Batata Inglesa', 8.90)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🥕 Cenoura (Kg)</h3>
-                    <p class="preco">R$ 5,50</p>
-                    <button onclick="adicionarAoCarrinho('Cenoura', 5.50)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🧅 Cebola (Kg)</h3>
-                    <p class="preco">R$ 6,00</p>
-                    <button onclick="adicionarAoCarrinho('Cebola', 6.00)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🥒 Abobrinha (Kg)</h3>
-                    <p class="preco">R$ 4,50</p>
-                    <button onclick="adicionarAoCarrinho('Abobrinha', 4.50)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🫑 Pimentão Verde (Kg)</h3>
-                    <p class="preco">R$ 7,00</p>
-                    <button onclick="adicionarAoCarrinho('Pimentão Verde', 7.00)">Adicionar</button>
-                </div>
-
-                <div class="produto-card">
-                    <h3>🥬 Alface Crespa (Maço)</h3>
-                    <p class="preco">R$ 3,50</p>
-                    <button onclick="adicionarAoCarrinho('Alface Crespa', 3.50)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🥦 Brócolis (Unid)</h3>
-                    <p class="preco">R$ 6,00</p>
-                    <button onclick="adicionarAoCarrinho('Brócolis', 6.00)">Adicionar</button>
-                </div>
-                <div class="produto-card">
-                    <h3>🌿 Couve Manteiga (Maço)</h3>
-                    <p class="preco">R$ 4,00</p>
-                    <button onclick="adicionarAoCarrinho('Couve Manteiga', 4.00)">Adicionar</button>
-                </div>
-
-            </div>
         </section>
 
         <section class="carrinho">
             <h2>Seu Carrinho</h2>
             <ul id="itens-carrinho">
                 </ul>
+            
+            <div class="cupom-container">
+                <input type="text" id="input-cupom" placeholder="Cupom (Ex: FEIRA10)">
+                <button onclick="aplicarCupom()">Aplicar</button>
+            </div>
+            <p id="msg-cupom"></p>
+
             <div class="total">
+                <div id="desconto-linha" style="display: none; color: #e53935; font-size: 0.9em; margin-bottom: 5px;">
+                    Desconto: -R$ <span id="valor-desconto">0,00</span>
+                </div>
                 <strong>Total: R$ <span id="valor-total">0,00</span></strong>
             </div>
             <button class="btn-finalizar" onclick="finalizarCompra()">Finalizar Pedido</button>
