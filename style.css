@@ -1,11 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
+/* Variáveis de cores para facilitar o Modo Escuro */
+:root {
+    --bg-body: #f4f9f4;
+    --bg-card: #ffffff;
+    --texto: #333333;
+    --borda: #e0ebd0;
+}
+
+.dark-mode {
+    --bg-body: #121212;
+    --bg-card: #1e1e1e;
+    --texto: #f5f5f5;
+    --borda: #333333;
+}
+
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: #f4f9f4;
+    background-color: var(--bg-body);
     margin: 0;
     padding: 0;
-    color: #333;
+    color: var(--texto);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 header {
@@ -15,9 +31,36 @@ header {
     padding: 20px;
 }
 
-header h1, h2, h3 {
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#btn-dark-mode {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 0.9em;
+}
+
+#btn-dark-mode:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.busca-container {
+    margin-top: 15px;
+}
+
+#barra-busca {
+    width: 80%;
+    max-width: 500px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    font-size: 1em;
+    outline: none;
 }
 
 .container {
@@ -26,31 +69,34 @@ header h1, h2, h3 {
     padding: 20px;
     gap: 20px;
     justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .produtos, .carrinho {
-    background: white;
+    background: var(--bg-card);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     min-width: 300px;
     flex: 1;
+    transition: background-color 0.3s;
 }
 
 .lista-produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px;
     padding: 10px 0;
 }
 
 .produto-card {
-    border: 1px solid #e0ebd0;
+    border: 1px solid var(--borda);
     padding: 15px;
     border-radius: 12px;
     text-align: center;
-    background-color: #ffffff;
-    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: var(--bg-card);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
 }
 
 .produto-card:hover {
@@ -61,6 +107,32 @@ header h1, h2, h3 {
 .preco {
     color: #4CAF50;
     font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Seletores de quantidade (- e +) */
+.contador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.btn-qtd {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+.dark-mode .btn-qtd {
+    background-color: #333;
+    color: #fff;
+}
+
+.qtd-numero {
+    font-weight: bold;
+    min-width: 20px;
 }
 
 button {
@@ -79,17 +151,12 @@ button:hover {
     background-color: #45a049;
 }
 
-.carrinho ul {
-    list-style: none;
-    padding: 0;
-}
-
 .carrinho li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--borda);
 }
 
 .btn-remover {
@@ -97,13 +164,31 @@ button:hover {
     border: none;
     padding: 4px 8px;
     cursor: pointer;
-    font-size: 0.9em;
-    transition: transform 0.1s;
 }
 
 .btn-remover:hover {
     background: none;
     transform: scale(1.2);
+}
+
+.cupom-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#input-cupom {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    background: var(--bg-body);
+    color: var(--texto);
+}
+
+#msg-cupom {
+    font-size: 0.85em;
+    margin: 5px 0 0 0;
 }
 
 .total {
@@ -115,11 +200,7 @@ button:hover {
 .btn-finalizar {
     width: 100%;
     padding: 12px;
-    background-color: #2e7d32; /* Um verde escuro elegante para o botão de sucesso */
-    font-size: 1em;
+    background-color: #2e7d32;
+    font-size: 1.1em;
     margin-top: 15px;
-}
-
-.btn-finalizar:hover {
-    background-color: #1b5e20;
 }
