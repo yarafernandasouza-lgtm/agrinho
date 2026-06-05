@@ -7,7 +7,7 @@ const produtosDados = [
     { id: 5, nome: "🥑 Abacate (Kg)", preco: 6.80, busca: "abacate" },
     { id: 6, nome: "🍉 Melancia (Fatia)", preco: 5.00, busca: "melancia" },
     { id: 7, nome: "🍇 Uva Sem Semente (Bdj)", preco: 9.50, busca: "uva" },
-    { id: 8, nome: "Pineapple 🍍 Abacaxi (Unid)", preco: 7.00, busca: "abacaxi" },
+    { id: 8, nome: "🍍 Abacaxi (Unid)", preco: 7.00, busca: "abacaxi" },
     { id: 9, nome: "🍅 Tomate Italiano (Kg)", preco: 9.50, busca: "tomate" },
     { id: 10, nome: "🥔 Batata Inglesa (Kg)", preco: 8.90, busca: "batata" },
     { id: 11, nome: "🥕 Cenoura (Kg)", preco: 5.50, busca: "cenoura" },
@@ -20,7 +20,7 @@ const produtosDados = [
 ];
 
 let carrinho = [];
-let total SemDesconto = 0;
+let totalSemDesconto = 0;
 let desconto = 0;
 let cupomAtivo = false;
 
@@ -63,7 +63,6 @@ function adicionarComQuantidade(id) {
     const produto = produtosDados.find(p => p.id === id);
     const qtd = quantidadesDefinidas[id];
     
-    // Verifica se o item já existe no carrinho para agrupar
     const itemNoCarrinho = carrinho.find(item => item.id === id);
     
     if (itemNoCarrinho) {
@@ -72,7 +71,6 @@ function adicionarComQuantidade(id) {
         carrinho.push({ id: produto.id, nome: produto.nome, preco: produto.preco, qtd: qtd });
     }
     
-    // Reseta o contador do card para 1
     quantidadesDefinidas[id] = 1;
     document.getElementById(`qtd-${id}`).innerText = 1;
     
@@ -107,7 +105,6 @@ function atualizarInterface() {
         listaHtml.appendChild(li);
     });
     
-    // Aplica o cálculo do cupom se estiver ativo
     if (cupomAtivo) {
         desconto = totalSemDesconto * 0.10; // 10%
         descontoLinha.style.display = 'block';
@@ -123,21 +120,19 @@ function atualizarInterface() {
     totalHtml.innerText = totalFinal.toFixed(2).replace('.', ',');
 }
 
-// Função da Barra de Pesquisa
 function filtrarProdutos() {
     const termoBusca = document.getElementById('barra-busca').value.toLowerCase();
     const filtrados = produtosDados.filter(p => p.busca.includes(termoBusca) || p.nome.toLowerCase().includes(termoBusca));
     renderizarVitrine(filtrados);
 }
 
-// Função do Cupom de Desconto
 function aplicarCupom() {
     const cupomTexto = document.getElementById('input-cupom').value.trim().toUpperCase();
     const msg = document.getElementById('msg-cupom');
     
     if (cupomTexto === "FEIRA10") {
         cupomAtivo = true;
-        msg.style.color = "#4CAF50";
+        msg.style.color = "#8e24aa"; // Mensagem em roxo
         msg.innerText = "Cupom FEIRA10 aplicado (10% de desconto)!";
         atualizarInterface();
     } else {
@@ -146,7 +141,6 @@ function aplicarCupom() {
     }
 }
 
-// Função do Modo Escuro
 function alternarModoEscuro() {
     document.body.classList.toggle('dark-mode');
     const btn = document.getElementById('btn-dark-mode');
@@ -173,11 +167,10 @@ function finalizarCompra() {
     }
     
     let totalFinal = totalSemDesconto - desconto;
-    resumoPedido += `\n\nValor Final Pago: R$ ${totalFinal.toFixed(2).replace('.', ',')}\n\nObrigado!`;
+    resumoPedido += `\n\nValor Final Pago: R$ ${totalFinal.toFixed(2).replace('.', ',')}\n\nObrigado por comprar conosco!`;
     
     alert(resumoPedido);
     
-    // Limpa tudo
     carrinho = [];
     cupomAtivo = false;
     document.getElementById('input-cupom').value = '';
@@ -185,5 +178,4 @@ function finalizarCompra() {
     atualizarInterface();
 }
 
-// Inicializa a vitrine assim que o script carrega
 renderizarVitrine(produtosDados);
